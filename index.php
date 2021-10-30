@@ -122,7 +122,7 @@ include_once 'functions.php';
                                         <div class="col-3">
                                             <figure class="figure" style="color: #339AF0;">
                                                 <i class="fas fa-tint"></i>
-                                                <figcaption class="figure-caption">Lenguaje aceptado</figcaption>
+                                                <figcaption class="figure-caption">Es parte del alfabeto</figcaption>
                                             </figure>
                                         </div>
                                         <div class="col-3">

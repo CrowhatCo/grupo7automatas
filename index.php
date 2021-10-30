@@ -70,6 +70,9 @@ include_once 'functions.php';
                                 <li class="nav-item">
                                     <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">Autómata 2</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " data-toggle="tab" href="#tabs-3" role="tab"><i class="fas fa-info-circle"></i> Info grupo</a>
+                                </li>
                             </ul><!-- Tab panes -->
                             <div class="tab-content">
                                 <div class="tab-pane active" id="tabs-1" role="tabpanel">
@@ -91,12 +94,66 @@ include_once 'functions.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="hero-form newsletter-form field field-grouped is-revealing">
-                                        <div class="control control-expanded">
-                                            <input class="input" type="text" name="email" placeholder="Your best email&hellip;">
+                                    <form id="form-carga" name="form-carga">
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <div class="hero-form newsletter-form field field-grouped is-revealing pb-16">
+                                                    <div class="control control-expanded">
+                                                        <input class="input" type="text" name="words2" id="words1" placeholder="Ingresa tus palabaras&hellip;">
+                                                    </div>
+                                                    <div class="control">
+                                                        <a class="button button-primary button-block button-shadow" onclick="searchByterm($('#words1').val(),1)">Validar</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="hero-form newsletter-form field field-grouped is-revealing pb-16">
+                                                    <div class="control control-expanded">
+                                                        <input type="file" name="carga" id="fileCSV" accept=".csv,.txt">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="btn btn-success" onclick='prepareUpload(1)'><i class="fas fa-upload"></i></div>
+                                            </div>
+                                            <div class="col-1">
+                                                <a class="btn btn-success" href="/?plantillaAutomatas=true"><i class="fas fa-file-csv"></i></a>
+                                            </div>
                                         </div>
-                                        <div class="control">
-                                            <a class="button button-primary button-block button-shadow" href="#">Get early access</a>
+                                    </form>
+                                    <div class="row">
+                                        <div class="col-12 text-left" id="carga-content-result-ajax1"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <table class="table table-sm">
+                                                <thead>
+                                                <tr class="table-info">
+                                                    <th>Paso</th>
+                                                    <th>0</th>
+                                                    <th>1</th>
+                                                    <th>Aceptación</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <?php
+                                                    foreach ($arrPasos1 as $intPaso=>$arrDestinos){
+                                                        ?>
+                                                        <tr class="<?= (isset($arrDestinos['FINAL']) && $arrDestinos['FINAL'] ==1)?'table-success':''?>">
+                                                            <td><?= $intPaso ?></td>
+                                                            <td><?= $arrDestinos['0'] ?></td>
+                                                            <td><?= $arrDestinos['1'] ?></td>
+                                                            <td><?= (isset($arrDestinos['FINAL']) && $arrDestinos['FINAL'] ==1)?'SI':'' ?></td>
+
+                                                        </tr>
+                                                        <?php
+                                                    }
+                                                ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="col-6">
+                                            <img src="dist/images/automatas1.png">
                                         </div>
                                     </div>
                                 </div>
@@ -113,7 +170,7 @@ include_once 'functions.php';
                                                     </svg>
                                                 </div>
                                                 <h3 class="feature-title">L= {a,b,c}</h3>
-                                                <p class="text-sm">AFND utilizando el lenguaje con el alfabeto {a, b, c} donde las palabras contienen las subcadenas
+                                                <p class="text-sm">Utilizando el lenguaje con el alfabeto {a, b, c} donde las palabras contienen las subcadenas
                                                     abc, bca y cab</p>
                                             </div>
                                         </div>
@@ -121,13 +178,13 @@ include_once 'functions.php';
 
                                     <form id="form-carga" name="form-carga">
                                         <div class="row">
-                                            <div class="col-6">
+                                            <div class="col-5">
                                                 <div class="hero-form newsletter-form field field-grouped is-revealing pb-16">
                                                     <div class="control control-expanded">
-                                                        <input class="input" type="text" name="words2" placeholder="Ingresa tus palabaras&hellip;">
+                                                        <input class="input" type="text" name="words2" id="words2" placeholder="Ingresa tus palabaras&hellip;">
                                                     </div>
                                                     <div class="control">
-                                                        <a class="button button-primary button-block button-shadow" href="#">Validar</a>
+                                                        <a class="button button-primary button-block button-shadow" onclick="searchByterm($('#words2').val(),2)">Validar</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -139,12 +196,15 @@ include_once 'functions.php';
                                                 </div>
                                             </div>
                                             <div class="col-2">
-                                                <div class="btn btn-success" onclick='prepareUpload()'><i class="fas fa-upload"></i></div>
+                                                <div class="btn btn-success" onclick='prepareUpload(2)'><i class="fas fa-upload"></i></div>
+                                            </div>
+                                            <div class="col-1">
+                                                <a class="btn btn-success" href="/?plantillaAutomatas=true"><i class="fas fa-file-csv"></i></a>
                                             </div>
                                         </div>
                                     </form>
                                     <div class="row">
-                                        <div class="col-md-12" id="carga-content-result-ajax"></div>
+                                        <div class="col-12 text-left" id="carga-content-result-ajax2"></div>
                                     </div>
                                     <div class="row">
                                         <div class="col-6">
@@ -160,14 +220,14 @@ include_once 'functions.php';
                                                 </thead>
                                                 <tbody>
                                                 <?php
-                                                foreach ($arrPasos as $intPaso=>$arrDestinos){
+                                                foreach ($arrPasos2 as $intPaso=>$arrDestinos){
                                                     ?>
-                                                    <tr class="<?= ($arrDestinos['0'] ==1)?'table-success':''?>">
+                                                    <tr class="<?= (isset($arrDestinos['FINAL']) && $arrDestinos['FINAL'] ==1)?'table-success':''?>">
                                                         <td><?= $intPaso ?></td>
                                                         <td><?= $arrDestinos['a'] ?></td>
                                                         <td><?= $arrDestinos['b'] ?></td>
                                                         <td><?= $arrDestinos['c'] ?></td>
-                                                        <td><?= ($arrDestinos['0'] ==1)?'SI':'' ?></td>
+                                                        <td><?= (isset($arrDestinos['FINAL']) && $arrDestinos['FINAL'] ==1)?'SI':'' ?></td>
 
                                                     </tr>
                                                     <?php
@@ -180,68 +240,46 @@ include_once 'functions.php';
                                             <img src="dist/images/automata2.png">
                                         </div>
                                     </div>
-                                    <script type="text/javascript">
-                                        var objFiles;
-                                        var objForm;
+                                </div>
+                                <div class="tab-pane" id="tabs-3" role="tabpanel">
+                                    <div class="features-wrap">
+                                        <div class="feature is-revealing">
+                                            <div class="feature-inner">
+                                                <div class="feature-icon">
+                                                    <img src="https://umg.edu.gt/assets/umg.png" style="max-width: 150px !important;" alt="umg">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
 
-                                        var objContentResultAjax;
-
-                                        function prepareUpload(){
-                                            objFiles = $('#fileCSV')[0].files;
-                                            objForm.submit();
-                                        }
-                                        function uploadFiles(event){
-                                            event.stopPropagation();
-                                            event.preventDefault();
-
-                                            var objData = new FormData();
-                                            $.each(objFiles, function(key, value){
-                                                objData.append(key, value);
-                                            });
-
-                                            $.ajax({
-                                                url: "functions.php?o=automata2",
-                                                type: 'POST',
-                                                data: objData,
-                                                cache: false,
-                                                dataType: 'json',
-                                                processData: false,
-                                                contentType: false,
-                                                beforeSend: function(){
-                                                },
-                                                success: function(data, textStatus, jqXHR){
-
-                                                    if($("#tabletoAppend").length!=0){
-                                                        $("#tabletoAppend").remove();
-                                                    }
-                                                    objContentResultAjax = $("#carga-content-result-ajax");
-                                                    var objTable = $("<table></table>").attr({
-                                                        id:"tabletoAppend",
-                                                        class:"table table-hover"
-                                                    });
-                                                    var objTRHeader = $("<tr></tr>");
-                                                    var thHeader = $(("<th></th>")).html('Errores encontrados');
-                                                    objTRHeader.append(thHeader);
-                                                    objTable.append(objTRHeader);
-                                                    $.each(data.errores, function(intKeyError,strText){
-                                                        var objTr = $("<tr></tr>");
-                                                        var objTd = $("<td></td>").append(strText);
-                                                        objTr.append(objTd);
-                                                        objTable.append(objTr);
-                                                    });
-                                                    objContentResultAjax.append(objTable)
-                                                },
-                                                error: function(jqXHR, textStatus, errorThrown){
-
-                                                }
-                                            });
-                                        }
-
-                                        $(document).ready(function(){
-                                            objForm = $("#form-carga");
-                                            objForm.on('submit', uploadFiles);
-                                        });
-                                    </script>
+                                            <table class="table">
+                                                <tbody>
+                                                <tr>
+                                                    <td>Josué Edgardo Escobar Soto</td>
+                                                    <td>3190-17-285</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Mario Enrique Herrera Monterroso</td>
+                                                    <td>3190-11-16815</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Wiston Sergio Antonio Loy Sánchez</td>
+                                                    <td>1590-17-9831</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Edwin Abraham López Muñoz</td>
+                                                    <td>3190-19-25151</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Elison Armando Martínez Guzmán</td>
+                                                    <td>3190-17-8530</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -315,12 +353,13 @@ include_once 'functions.php';
                             </a>
                         </li>
                     </ul>
-                    <div class="footer-copyright">&copy; 2021 grupo7Automatas, all rights reserved Universidad Mariano Gálvez de Guatemala</div>
+                    <div class="footer-copyright">&copy; <?= date('Y') ?> grupo7Automatas, all rights reserved Universidad Mariano Gálvez de Guatemala</div>
                 </div>
             </div>
         </footer>
     </div>
 
     <script src="dist/js/main.min.js"></script>
+    <script src="dist/js/scripts.js"></script>
 </body>
 </html>

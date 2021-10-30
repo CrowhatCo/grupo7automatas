@@ -5,7 +5,7 @@ var objForm2;
 var objContentResultAjax;
 var automata
 
-function prepareUpload(type, form){
+function prepareUpload(type){
     automata = type;
     objFiles = $('#fileCSV'+automata)[0].files;
     //console.log(objForm);

@@ -106,7 +106,7 @@
     function digestData($operation, $term){
         global ${"arrPasos$operation"}, ${"strPattern$operation"};
         $arrErrors = array();
-        $arrFiles = $_FILES[0];
+        $arrFiles = $_FILES[0]??false;
         $row_number = 0;
         $rows = array();
         $boolError = false;

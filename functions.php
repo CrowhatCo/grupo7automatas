@@ -25,8 +25,6 @@
         // output the column headings
         fputcsv($output, array('acababaca'),',');
         fputcsv($output, array('babacaabca'),',');
-        fputcsv($output, array('1001110000110'),',');
-        fputcsv($output, array('1001001'),',');
         die();
     }
     /*********AUTOMATA1**********************/
@@ -108,14 +106,15 @@
     function digestData($operation, $term){
         global ${"arrPasos$operation"}, ${"strPattern$operation"};
         $arrErrors = array();
-        $arrFiles = $_FILES[0]??false;
+        $arrFiles = $_FILES[0];
         $row_number = 0;
         $rows = array();
         $boolError = false;
         $arrAnalisis = array();
+        //dd($arrFiles);
         if(isset($arrFiles["error"]) && $arrFiles["error"] == 0) {
             $extension = pathinfo($arrFiles['name'], PATHINFO_EXTENSION);
-            //dd($arrFiles);
+
             if (!empty($extension) && $extension == 'csv') {
                 if (($objHandle = fopen($arrFiles["tmp_name"], "r")) != false) {
                     $headers = fgetcsv($objHandle, $arrFiles["size"], ',');
@@ -174,6 +173,7 @@
         }
         $arrReturn['errores']= $arrErrors;
         $arrReturn['status']= ($boolError)?"fail":"ok";
+        //dd($arrAnalisis);
         ?>
         <ul class="list-group">
         <?php

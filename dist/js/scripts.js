@@ -1,19 +1,21 @@
 var objFiles;
-var objForm;
+var objForm1;
+var objForm2;
 
 var objContentResultAjax;
 var automata
 
-function prepareUpload(type){
+function prepareUpload(type, form){
     automata = type;
-    objFiles = $('#fileCSV')[0].files;
-    objForm.submit();
+    objFiles = $('#fileCSV'+automata)[0].files;
+    //console.log(objForm);
+    window['objForm'+type].submit();
 }
 function uploadFiles(event){
     event.stopPropagation();
     event.preventDefault();
-
-    var objData = new FormData();
+    var myForm = document.getElementById('form-carga'+automata);
+    var objData = new FormData(myForm);
     $.each(objFiles, function(key, value){
         objData.append(key, value);
     });
@@ -28,7 +30,7 @@ function uploadFiles(event){
         beforeSend: function(){
         },
         success: function(data, textStatus, jqXHR){
-            console.log(data);
+            //console.log(data);
             if($("#tabletoAppend").length!=0){
                 $("#tabletoAppend").remove();
             }
@@ -50,7 +52,7 @@ function searchByterm(term, type){
         beforeSend: function(){
         },
         success: function(data, textStatus, jqXHR){
-            console.log(data);
+            //console.log(data);
             if($("#tabletoAppend").length!=0){
                 $("#tabletoAppend").remove();
             }
@@ -64,6 +66,8 @@ function searchByterm(term, type){
 }
 
 $(document).ready(function(){
-    objForm = $("#form-carga");
-    objForm.on('submit', uploadFiles);
+    objForm1 = $("#form-carga1");
+    objForm1.on('submit', uploadFiles);
+    objForm2 = $("#form-carga2");
+    objForm2.on('submit', uploadFiles);
 });

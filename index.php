@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 include_once 'functions.php';
 ?>
 <!DOCTYPE html>
@@ -94,12 +94,12 @@ include_once 'functions.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <form id="form-carga" name="form-carga">
+                                    <form id="form-carga1" name="form-carga1" class="form-carga">
                                         <div class="row">
                                             <div class="col-5">
                                                 <div class="hero-form newsletter-form field field-grouped is-revealing pb-16">
                                                     <div class="control control-expanded">
-                                                        <input class="input" type="text" name="words2" id="words1" placeholder="Ingresa tus palabaras&hellip;">
+                                                        <input class="input" type="text" name="words1" id="words1" placeholder="Ingresa tus palabaras&hellip;">
                                                     </div>
                                                     <div class="control">
                                                         <a class="button button-primary button-block button-shadow" onclick="searchByterm($('#words1').val(),1)">Validar</a>
@@ -109,12 +109,12 @@ include_once 'functions.php';
                                             <div class="col-4">
                                                 <div class="hero-form newsletter-form field field-grouped is-revealing pb-16">
                                                     <div class="control control-expanded">
-                                                        <input type="file" name="carga" id="fileCSV" accept=".csv,.txt">
+                                                        <input type="file" name="carga1" id="fileCSV1" accept=".csv,.txt">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-2">
-                                                <div class="btn btn-success" onclick='prepareUpload(1)'><i class="fas fa-upload"></i></div>
+                                                <div class="btn btn-success" onclick='prepareUpload(1,$("#form-carga1"))'><i class="fas fa-upload"></i></div>
                                             </div>
                                             <div class="col-1">
                                                 <a class="btn btn-success" href="/?plantillaAutomatas=true"><i class="fas fa-file-csv"></i></a>
@@ -176,7 +176,7 @@ include_once 'functions.php';
                                         </div>
                                     </div>
 
-                                    <form id="form-carga" name="form-carga">
+                                    <form id="form-carga2" name="form-carga" class="form-carga">
                                         <div class="row">
                                             <div class="col-5">
                                                 <div class="hero-form newsletter-form field field-grouped is-revealing pb-16">
@@ -191,12 +191,12 @@ include_once 'functions.php';
                                             <div class="col-4">
                                                 <div class="hero-form newsletter-form field field-grouped is-revealing pb-16">
                                                     <div class="control control-expanded">
-                                                        <input type="file" name="carga" id="fileCSV" accept=".csv,.txt">
+                                                        <input type="file" name="carga2" id="fileCSV2" accept=".csv,.txt">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-2">
-                                                <div class="btn btn-success" onclick='prepareUpload(2)'><i class="fas fa-upload"></i></div>
+                                                <div class="btn btn-success" onclick='prepareUpload(2,$("#form-carga2"))'><i class="fas fa-upload"></i></div>
                                             </div>
                                             <div class="col-1">
                                                 <a class="btn btn-success" href="/?plantillaAutomatas=true"><i class="fas fa-file-csv"></i></a>

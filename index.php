@@ -58,7 +58,7 @@ include_once 'functions.php';
 
         <main>
             <section class="hero text-center">
-                <div class="container-sm">
+                <div class="container">
                     <div class="hero-inner">
                         <h1 class="hero-title h2-mobile mt-0 is-revealing">Bienvenidos</h1>
                         <p class="hero-paragraph is-revealing">Grupo 7</p>
@@ -106,6 +106,9 @@ include_once 'functions.php';
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="col-12">
+                                                <hr>
+                                            </div>
                                             <div class="col-5 col-sm-10">
                                                 <div class="hero-form newsletter-form field field-grouped is-revealing pb-16">
                                                     <div class="control control-expanded">
@@ -116,9 +119,17 @@ include_once 'functions.php';
                                             <div class="col-2">
                                                 <div class="btn btn-success" onclick='prepareUpload(1)'><i class="fas fa-upload"></i> Validar</div>
                                             </div>
+                                            <div class="col-12">
+                                                <span style="font-size: 0.75rem;">Formatos permitidos:</span>
+                                                <i class="fas fa-file-csv" style="color: #025d1f;"></i><span style="font-size: 0.5rem;"> (.csv) Delimitado por comas o enter</span>
+                                                <i class="fas fa-file" style="color: #5d6560;"></i><span style="font-size: 0.5rem;"> (.txt) Delimitado por comas o enter</span>
+                                            </div>
                                         </div>
                                     </form>
                                     <div class="row">
+                                        <div class="col-12">
+                                            <hr>
+                                        </div>
                                         <div class="col-3">
                                             <figure class="figure" style="color: #339AF0;">
                                                 <i class="fas fa-tint"></i>
@@ -199,7 +210,7 @@ include_once 'functions.php';
 
                                     <form id="form-carga2" name="form-carga" class="form-carga">
                                         <div class="row">
-                                            <div class="col-5 col-sm-12">
+                                            <div class="col-12 col-sm-12">
                                                 <div class="hero-form newsletter-form field field-grouped is-revealing pb-16">
                                                     <div class="control control-expanded">
                                                         <input class="input" type="text" name="words2" id="words2" placeholder="Ingresa tus palabaras&hellip;">
@@ -209,7 +220,10 @@ include_once 'functions.php';
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-5 col-sm-10">
+                                            <div class="col-12">
+                                                <hr>
+                                            </div>
+                                            <div class="col-10 col-sm-10">
                                                 <div class="hero-form newsletter-form field field-grouped is-revealing pb-16">
                                                     <div class="control control-expanded">
                                                         <input type="file" name="carga2" id="fileCSV2" accept=".csv,.txt">
@@ -219,9 +233,41 @@ include_once 'functions.php';
                                             <div class="col-2">
                                                 <div class="btn btn-success" onclick='prepareUpload(2)'><i class="fas fa-upload"></i> Validar</div>
                                             </div>
+                                            <div class="col-12">
+                                                <span style="font-size: 0.75rem;">Formatos permitidos:</span>
+                                                <i class="fas fa-file-csv" style="color: #025d1f;"></i><span style="font-size: 0.5rem;"> (.csv) Delimitado por comas o enter</span>
+                                                <i class="fas fa-file" style="color: #5d6560;"></i><span style="font-size: 0.5rem;"> (.txt) Delimitado por comas o enter</span>
+                                            </div>
                                         </div>
                                     </form>
                                     <div class="row">
+                                        <div class="col-12">
+                                            <hr>
+                                        </div>
+                                        <div class="col-3">
+                                            <figure class="figure" style="color: #339AF0;">
+                                                <i class="fas fa-tint"></i>
+                                                <figcaption class="figure-caption">Es parte del alfabeto</figcaption>
+                                            </figure>
+                                        </div>
+                                        <div class="col-3">
+                                            <figure class="figure" style="color: #48A868;">
+                                                <i class="fas fa-tint"></i>
+                                                <figcaption class="figure-caption">Cadena aceptada</figcaption>
+                                            </figure>
+                                        </div>
+                                        <div class="col-3">
+                                            <figure class="figure" style="color: #F48225;">
+                                                <i class="fas fa-tint"></i>
+                                                <figcaption class="figure-caption">Cadena no aceptada</figcaption>
+                                            </figure>
+                                        </div>
+                                        <div class="col-3">
+                                            <figure class="figure" style="color: #E53935;">
+                                                <i class="fas fa-tint"></i>
+                                                <figcaption class="figure-caption">Alfabeto inválido</figcaption>
+                                            </figure>
+                                        </div>
                                         <div class="col-12 text-left" id="carga-content-result-ajax2"></div>
                                     </div>
                                     <div class="row">

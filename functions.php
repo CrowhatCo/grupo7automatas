@@ -92,7 +92,8 @@
 
     if(isset($_GET['operar'])){
         $intOperacion = intval($_GET['operar']);
-        $strTerm = $_GET['term']??false;
+        $strTerm = isset($_GET['term'])?"{$_GET['term']}":false;
+        //dd($strTerm);
         //$arrLenguaje2 =array('a','b','c');
 
         //$strWord = 'cab';
@@ -160,7 +161,7 @@
             }
 
         }
-        elseif(!empty($term)){
+        elseif(isset($term)){
             $strTerm = trim($term);
             automata(${"arrPasos$operation"},$strTerm,1,$arrAnalisis,$strTerm,${"strPattern$operation"});
         }

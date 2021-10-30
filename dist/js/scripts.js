@@ -43,6 +43,8 @@ function uploadFiles(event){
     });
 }
 function searchByterm(term, type){
+
+    term = term+' ';
     $.ajax({
         url: "functions.php?operar="+type+"&term="+term,
         type: 'POST',

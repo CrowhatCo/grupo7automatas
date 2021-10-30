@@ -119,6 +119,30 @@ include_once 'functions.php';
                                         </div>
                                     </form>
                                     <div class="row">
+                                        <div class="col-3">
+                                            <figure class="figure" style="color: #339AF0;">
+                                                <i class="fas fa-tint"></i>
+                                                <figcaption class="figure-caption">Lenguaje aceptado</figcaption>
+                                            </figure>
+                                        </div>
+                                        <div class="col-3">
+                                            <figure class="figure" style="color: #48A868;">
+                                                <i class="fas fa-tint"></i>
+                                                <figcaption class="figure-caption">Cadena aceptada</figcaption>
+                                            </figure>
+                                        </div>
+                                        <div class="col-3">
+                                            <figure class="figure" style="color: #F48225;">
+                                                <i class="fas fa-tint"></i>
+                                                <figcaption class="figure-caption">Cadena no aceptada</figcaption>
+                                            </figure>
+                                        </div>
+                                        <div class="col-3">
+                                            <figure class="figure" style="color: #E53935;">
+                                                <i class="fas fa-tint"></i>
+                                                <figcaption class="figure-caption">Alfabeto inválido</figcaption>
+                                            </figure>
+                                        </div>
                                         <div class="col-12 text-left" id="carga-content-result-ajax1"></div>
                                     </div>
                                     <div class="row">
